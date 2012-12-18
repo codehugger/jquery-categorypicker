@@ -4,15 +4,19 @@ A simple category picker base on jquery
 
 ## Introduction
 
-If you find yourself writing the same code over and over again when creating a list of selectable items where
-the end result is the selected items. The **categorypicker** jquery plugin is simple easy and follows two
-principles _Keep-It-Simple-Stupid_ and _Principle-Of-Least-Astonishment_.
+If you find yourself writing the same code over and over again when creating a list of selectable items where the end result is the selected items. The **categorypicker** jquery plugin is simple easy and follows two principles _Keep-It-Simple-Stupid_ and _Principle-Of-Least-Astonishment_.
 
-```javascript
-$(element).categorypicker({
-  availableCategories: [{"1", "foo"}, {"2", "bar"}],
-  onUpdate: function (selection) { console.log(selection); }
-});
+```html
+<div id="categorypicker"></div>
+
+<script type="text/javascript">
+  $(function () {
+    $(element).categorypicker({
+      availableCategories: [{"1", "foo"}, {"2", "bar"}],
+      onUpdate: function (selection) { console.log(selection); }
+    });
+  });
+</script>
 ```
 
 ## Options
