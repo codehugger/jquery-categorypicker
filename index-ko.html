@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jquery-categorypicker</title>
+    <script src="./vendor/jquery.min.js"></script>
+    <script src="./vendor/ko.min.js"></script>
+    <script src="./jquery-categorypicker.js"></script>
+    <script src="./jquery-categorypicker-ko.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="menu">
+            <span><a href="./index.html">Vanilla.js</a></span>
+            <span><a href="./index-ko.html" class="active">Knockout.js</a></span>
+        </div>
+
+        <div id="categorypicker" data-bind="categorypicker: selectedCategories, available: availableCategories, display: 'display'"></div>
+
+        <div class="quick">
+            <a id="all" href="#" data-bind="click: selectAll">All</a>
+            <a id="none" href="#" data-bind="click: selectNone">None</a>
+        </div>
+
+        <div id="categories" class="categoryselection">
+            <ul data-bind="foreach: selectedCategories">
+                <li data-bind="text: value"></li>
+            </ul>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            var ViewModel = function () {
+                self = this;
+
+                self.availableCategories = ko.observableArray([
+                    {id: "1", value: "Fruit", display: "Fruitz"},
+                    {id: "2", value: "Vegetables", display: "Veggies"},
+                    {id: "3", value: "Dairy", display: "Milk and stuff"},
+                    {id: "4", value: "Meat", display: "Here piggy, piggy!"}
+                ]);
+
+                self.selectedCategories = ko.observableArray([
+                    {id: "3", value: "Dairy"},
+                    {id: "4", value: "Meat"}
+                ]);
+
+                self.selectAll = function () {
+                    self.selectedCategories(self.availableCategories());
+                };
+
+                self.selectNone = function () {
+                    self.selectedCategories([]);
+                };
+            };
+
+            ko.applyBindings(new ViewModel());
+        });
+    </script>
+
+</body>

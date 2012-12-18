@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jquery-categorypicker</title>
+    <script src="./vendor/jquery.min.js"></script>
+    <script src="./jquery-categorypicker.js"></script>
+    <link rel="stylesheet" type="text/css" href="./style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="menu">
+            <span><a href="./index.html" class="active">Vanilla.js</a></span>
+            <span><a href="./index-ko.html">Knockout.js</a></span>
+        </div>
+
+        <div id="categorypicker"></div>
+
+        <div class="quick">
+            <a id="all" href="#">All</a>
+            <a id="none" href="#">None</a>
+        </div>
+
+        <div id="categories" class="categoryselection"></div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(function () {
+            var available = [
+                {id: "1", value: "Fruit", display: "Fruitz"},
+                {id: "2", value: "Vegetables", display: "Veggies"},
+                {id: "3", value: "Dairy", display: "Milk and stuff"},
+                {id: "4", value: "Meat", display: "Here piggy, piggy!"}
+            ]
+            var selected = [
+                {id: "1", value: "Fruit"},
+                {id: "2", value: "Vegetables"}
+            ]
+
+            function bindCategoryPicker() {
+                $("#categorypicker").categorypicker({
+                displayField: 'display',
+                availableCategories: available,
+                selectedCategories: selected,
+                onUpdate: function (selection) {
+                    var el = $('#categories');
+                    var list_node = $('<ul></ul>');
+
+                    $.each(selection, function (i, value) {
+                        var item_node = $('<li></li>');
+                        item_node.html(value['value']);
+                        list_node.append(item_node);
+                    });
+
+                    el.html(list_node);
+                }
+                })
+            }
+
+            $("#all").on('click', function (e) {
+                selected = available;
+                bindCategoryPicker();
+                e.preventDefault();
+            });
+
+            $('#none').on('click', function (e) {
+                selected = [];
+                bindCategoryPicker();
+                e.preventDefault();
+            });
+
+            bindCategoryPicker();
+        });
+    </script>
+
+</body>

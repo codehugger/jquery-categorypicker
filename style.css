@@ -1,0 +1,55 @@
+body {
+    font-family: Verdana;
+}
+
+.container {
+    width: 20em;
+    margin: 2em auto;
+}
+
+.menu, .quick {
+    width: 20em;
+    margin: 2em auto;
+    text-align: center;
+}
+.menu .active,
+.quick .active {
+    background-color: #666;
+    color: #fff;
+}
+.menu a,
+.quick a {
+    display: inline-block;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    width: 49%;
+    height: 2em;
+    line-height: 2em;
+    text-decoration: none;
+    font-weight: bold;
+    color: #000;
+    background: #eee;
+}
+.menu a:hover,
+.quick a:hover {
+    background-color: #666;
+    color: #fff;
+}
+
+.categorypicker {
+    margin: 2em auto;
+    border-radius: 10px;
+    background: #000;
+    color: #fff;
+    padding: 1em;
+}
+
+.categoryselection {
+    margin: 2em auto;
+    border-radius: 10px;
+    background: #fff;
+    color: #000;
+    padding: 1em;
+    border: 1px solid #000;
+}
