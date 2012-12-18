@@ -46,17 +46,19 @@
 
 <p>If you find yourself writing the same code over and over again when creating a list of selectable items where the end result is the selected items. The <strong>categorypicker</strong> jquery plugin is simple easy and follows two principles <em>Keep-It-Simple-Stupid</em> and <em>Principle-Of-Least-Astonishment</em>.</p>
 
-<h3>Example:</h3>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">id=</span><span class="s">"categorypicker"</span><span class="nt">&gt;&lt;/div&gt;</span>
 
-<div class="highlight"><pre><span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">categorypicker</span><span class="p">({</span>
-  <span class="nx">availableCategories</span><span class="o">:</span> <span class="p">[{</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"foo"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"2"</span><span class="p">,</span> <span class="s2">"bar"</span><span class="p">}],</span>
-  <span class="nx">onUpdate</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">selection</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">selection</span><span class="p">);</span> <span class="p">}</span>
-<span class="p">});</span>
+<span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
+  <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
+    <span class="nx">$</span><span class="p">(</span><span class="nx">element</span><span class="p">).</span><span class="nx">categorypicker</span><span class="p">({</span>
+      <span class="nx">availableCategories</span><span class="o">:</span> <span class="p">[{</span><span class="s2">"1"</span><span class="p">,</span> <span class="s2">"foo"</span><span class="p">},</span> <span class="p">{</span><span class="s2">"2"</span><span class="p">,</span> <span class="s2">"bar"</span><span class="p">}],</span>
+      <span class="nx">onUpdate</span><span class="o">:</span> <span class="kd">function</span> <span class="p">(</span><span class="nx">selection</span><span class="p">)</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">selection</span><span class="p">);</span> <span class="p">}</span>
+    <span class="p">});</span>
+  <span class="p">});</span>
+<span class="nt">&lt;/script&gt;</span>
 </pre></div>
 
 <h2>Options</h2>
-
-<h3>Internals</h3>
 
 <p><strong>selectedCategories:</strong> a collection of pre-selected categories. (default: [])</p>
 
@@ -71,8 +73,6 @@
 <p><strong>displayField:</strong> object field used for text on checkboxes (default: 'value')</p>
 
 <p><strong>onUpdate:</strong> a callback used when the selection changes (default: undefined)</p>
-
-<h3>Templates</h3>
 
 <p><strong>rootTemplate:</strong> the template surrounding the categorypicker. Default:</p>
 
@@ -93,9 +93,7 @@
 
 <p>A simple <strong>categorypicker</strong> binding for Knockout.js is included in <em>jquery-categorypicker-ko.js</em>.</p>
 
-<h3>Example</h3>
-
-<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">data-bind=</span><span class="s">"categorypicker: selected, availableCategories: available"</span><span class="nt">&gt;&lt;/div&gt;</span>
+<div class="highlight"><pre><span class="nt">&lt;div</span> <span class="na">data-bind=</span><span class="s">"selected, availableCategories: available"</span><span class="nt">&gt;&lt;/div&gt;</span>
 
 <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">"text/javascript"</span><span class="nt">&gt;</span>
   <span class="nx">$</span><span class="p">(</span><span class="kd">function</span> <span class="p">()</span> <span class="p">{</span>
