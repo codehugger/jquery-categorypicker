@@ -36,6 +36,9 @@
         // declare ui templates
         var rootTemplate;
 
+        /*
+         * handle the check/uncheck of a list item
+         */
         function itemClicked (e) {
             // update the list of selected categories
             var id = e.target.id;
@@ -62,49 +65,19 @@
 
             selectedCategories.sort(function (a, b) { return a[sortField] > b[sortField]; });
 
-            triggerOnChange();
+            triggerOnUpdate();
         }
 
-        function allClicked (e) {
-            selectedCategories = availableCategories;
-
-            render();
-
-            triggerOnChange();
-
-            e.preventDefault();
-        }
-
-        function noneClicked(e) {
-            selectedCategories = [];
-
-            render();
-
-            triggerOnChange();
-
-            e.preventDefault();
-        }
-
-        function triggerOnChange() {
+        /*
+         * triggers the onUpdate callback with selectedCategories
+         */
+        function triggerOnUpdate() {
             if (onUpdate) { onUpdate(selectedCategories); }
         }
 
-        function buildQuickSelection () {
-            var quick_node = $(quickTemplate);
-            var all_node = $('<button href="#">All</button>');
-            var none_node = $('<button href="#">None</button>');
-
-            all_node.on('click', allClicked);
-            all_node.attr('value', 'all');
-            none_node.on('click', noneClicked);
-            none_node.attr('value', 'none');
-
-            quick_node.append(all_node);
-            quick_node.append(none_node);
-
-            return quick_node;
-        }
-
+        /*
+         * build list item from template and attach events
+         */
         function buildItem (item) {
             var item_node = $(itemTemplate);
             var internal_node = $('<input type="checkbox">');
@@ -126,6 +99,9 @@
             return item_node;
         }
 
+        /*
+         * build list from template and attach list items
+         */
         function buildList () {
             var list_node = $(listTemplate);
 
@@ -160,7 +136,6 @@
             // internals
             availableCategories     = opts.availableCategories  || [];
             selectedCategories      = opts.selectedCategories   || [];
-            selectAll               = opts.selectAll            || false;
             idField                 = opts.idField              || 'id';
             sortField               = opts.sortField            || idField;
             valueField              = opts.valueField           || 'value';
@@ -169,15 +144,14 @@
 
             // templates
             rootTemplate            = opts.rootTemplate         || '<div class="categorypicker"></div>';
-            listTemplate            = opts.listTemplate         || '<ul class="item_list"></ul>';
+            listTemplate            = opts.listTemplate         || '<ul class="list"></ul>';
             itemTemplate            = opts.itemTemplate         || '<li class="item"></li>';
-            quickTemplate           = opts.quickTemplate        || '<div class="quick"></div>';
 
             // initialize display
             render();
 
             // fire an initial event
-            triggerOnChange();
+            triggerUpdate();
 
             return self;
         }
