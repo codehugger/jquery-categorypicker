@@ -4,9 +4,9 @@ A simple category picker base on jquery
 
 ## Introduction
 
-If you find yourself writing the same code over and over again when creating a list of selectable items where the end result is the selected items. The **categorypicker** jquery plugin is simple easy and follows two principles _Keep-It-Simple-Stupid_ and _Principle-Of-Least-Astonishment_.
-
-### Example:
+If you find yourself writing the same code over and over again when creating a list of selectable items where
+the end result is the selected items. The **categorypicker** jquery plugin is simple easy and follows two
+principles _Keep-It-Simple-Stupid_ and _Principle-Of-Least-Astonishment_.
 
 ```javascript
 $(element).categorypicker({
@@ -16,8 +16,6 @@ $(element).categorypicker({
 ```
 
 ## Options
-
-### Internals
 
 **selectedCategories:** a collection of pre-selected categories. (default: [])
 
@@ -32,8 +30,6 @@ $(element).categorypicker({
 **displayField:** object field used for text on checkboxes (default: 'value')
 
 **onUpdate:** a callback used when the selection changes (default: undefined)
-
-### Templates
 
 **rootTemplate:** the template surrounding the categorypicker. Default:
   
@@ -56,8 +52,6 @@ $(element).categorypicker({
 ## Knockout.js bindings
 
 A simple **categorypicker** binding for Knockout.js is included in _jquery-categorypicker-ko.js_.
-
-### Example
 
 ```html
 <div data-bind="selected, availableCategories: available"></div>
