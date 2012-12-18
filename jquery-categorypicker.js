@@ -151,7 +151,7 @@
             render();
 
             // fire an initial event
-            triggerUpdate();
+            triggerOnUpdate();
 
             return self;
         }

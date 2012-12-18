@@ -7,22 +7,24 @@ ko.bindingHandlers.categorypicker = {
 
         var selected = ko.utils.unwrapObservable(value);
 
-        var available = ko.utils.unwrapObservable(allBindings.available);
-        var idField = ko.utils.unwrapObservable(allBindings.id);
-        var displayField = ko.utils.unwrapObservable(allBindings.display);
-        var valueField = ko.utils.unwrapObservable(allBindings.value);
+        var available = ko.utils.unwrapObservable(allBindings.availableCategories);
+        var idField = ko.utils.unwrapObservable(allBindings.idField);
+        var sortField = ko.utils.unwrapObservable(allBindings.sortField);
+        var valueField = ko.utils.unwrapObservable(allBindings.valueField);
+        var displayField = ko.utils.unwrapObservable(allBindings.displayField);
 
         // Now manipulate the DOM element
         $(element).categorypicker({
-            onUpdate: function (newSelection) {
-                value(newSelection);
-            },
             selectedCategories: selected,
             availableCategories: available,
-
             idField: idField,
+            sortField: sortField,
             valueField: valueField,
-            displayField: displayField
+            displayField: displayField,
+
+            onUpdate: function (newSelection) {
+                value(newSelection);
+            }
         });
     }
 };
