@@ -21,14 +21,14 @@
 
             // copy all of the values from selected
             $.each(selectedCategories, function (i, category) {
-                if (id !== category[idField]) {
+                if (id != category[idField]) {
                     newSelection.push(category);
                 }
             });
 
             if (checked) {
                 $.each(availableCategories, function (i, category) {
-                    if (id === category[idField]) {
+                    if (id == category[idField]) {
                         newSelection.push(category);
                     }
                 });

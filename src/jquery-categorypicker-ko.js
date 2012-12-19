@@ -5,7 +5,7 @@ ko.bindingHandlers.categorypicker = {
 
         // Next, whether or not the supplied model property is observable, get its current value
 
-        var selected = ko.utils.unwrapObservable(value);
+        var selected = ko.utils.unwrapObservable(value) || [];
 
         var available = ko.utils.unwrapObservable(allBindings.availableCategories);
         var idField = ko.utils.unwrapObservable(allBindings.idField);
