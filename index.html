@@ -34,29 +34,34 @@
                 {id: "3", value: "Dairy", display: "Milk and stuff"},
                 {id: "4", value: "Meat", display: "Here piggy, piggy!"}
             ]
+
             var selected = [
                 {id: "1", value: "Fruit"},
                 {id: "2", value: "Vegetables"}
             ]
 
+            var updateDisplay = function (selection) {
+                var el = $('#categories');
+                var list_node = $('<ul></ul>');
+
+                $.each(selection, function (i, value) {
+                    var item_node = $('<li></li>');
+                    item_node.html(value['value']);
+                    list_node.append(item_node);
+                });
+
+                el.html(list_node);
+            }
+
             function bindCategoryPicker() {
                 $("#categorypicker").categorypicker({
-                displayField: 'display',
-                availableCategories: available,
-                selectedCategories: selected,
-                onUpdate: function (selection) {
-                    var el = $('#categories');
-                    var list_node = $('<ul></ul>');
+                    displayField: 'display',
+                    availableCategories: available,
+                    selectedCategories: selected,
+                    onUpdate: updateDisplay,
+                });
 
-                    $.each(selection, function (i, value) {
-                        var item_node = $('<li></li>');
-                        item_node.html(value['value']);
-                        list_node.append(item_node);
-                    });
-
-                    el.html(list_node);
-                }
-                })
+                updateDisplay(selected);
             }
 
             $("#all").on('click', function (e) {

@@ -22,6 +22,10 @@ ko.bindingHandlers.categorypicker = {
             valueField: valueField,
             displayField: displayField,
 
+            onInit: function (newSelection) {
+                // do nothing
+            },
+
             onUpdate: function (newSelection) {
                 value(newSelection);
             }

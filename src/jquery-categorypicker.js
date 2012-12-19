@@ -42,9 +42,18 @@
         }
 
         /*
+         * triggers the onInit callback with selectedCategories
+         */
+        function triggerOnInit() {
+            console.log('trying onInit');
+            if (onInit) { onInit(selectedCategories); }
+        }
+
+        /*
          * triggers the onUpdate callback with selectedCategories
          */
         function triggerOnUpdate() {
+            console.log('trying onUpdate');
             if (onUpdate) { onUpdate(selectedCategories); }
         }
 
@@ -114,6 +123,7 @@
             valueField              = opts.valueField           || 'value';
             displayField            = opts.displayField         || 'value';
             onUpdate                = opts.onUpdate;
+            onInit                  = opts.onInit;
 
             // templates
             rootTemplate            = opts.rootTemplate         || '<div class="categorypicker"></div>';
@@ -122,9 +132,6 @@
 
             // initialize display
             render();
-
-            // fire an initial event
-            triggerOnUpdate();
 
             return self;
         }
