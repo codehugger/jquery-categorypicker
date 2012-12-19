@@ -21,7 +21,7 @@ If you find yourself writing the same code over and over again when creating a l
 
 ## Live Example
 
-There is a live example available on [jsFiddle]()
+There is a live example available on [jsFiddle](http://jsfiddle.net/6eFvM/)
 
 ## Options
 
