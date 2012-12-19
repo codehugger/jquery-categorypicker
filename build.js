@@ -1,28 +1,50 @@
 var compressor = require('node-minify');
 var fs = require('fs');
 
-fs.exists('./build', function (exists) {
-  if (!exists) {
-    fs.mkdirSync('./build');
-  }
-});
-
+/*
+ * jquery-categorypicker.min.js
+ */
 new compressor.minify({
     type: 'yui-js',
-    fileIn: ['./jquery-categorypicker.js'],
-    fileOut: './build/categorypicker.min.js',
-    callback: function(err){
+    fileIn: './src/jquery-categorypicker.js',
+    fileOut: './jquery-categorypicker.min.js',
+    callback: function(err) {
         if (err) { console.log(err); }
-        else { console.log(this.fileOut); }
+        else {
+            // include LICENSE
+            new compressor.minify({
+                type: 'no-compress',
+                fileIn: [
+                    'LICENSE',
+                    './jquery-categorypicker.min.js'],
+                fileOut: './jquery-categorypicker.min.js',
+                callback: function(err) {
+                    console.log(this.fileOut);
+                }
+            });
+        }
     }
 });
 
+/*
+ * jquery-categorypicker-ko.min.js
+ */
 new compressor.minify({
     type: 'yui-js',
-    fileIn: ['./jquery-categorypicker.js', './jquery-categorypicker-ko.js'],
-    fileOut: './build/categorypicker-ko.min.js',
-    callback: function(err){
+    fileIn: './src/jquery-categorypicker-ko.js',
+    fileOut: './jquery-categorypicker-ko.min.js',
+    callback: function(err) {
         if (err) { console.log(err); }
-        else { console.log(this.fileOut); }
+        else {
+            // include LICENSE
+            new compressor.minify({
+                type: 'no-compress',
+                fileIn: ['LICENSE', './jquery-categorypicker-ko.min.js'],
+                fileOut: './jquery-categorypicker-ko.min.js',
+                callback: function(err) {
+                    console.log(this.fileOut);
+                }
+            });
+        }
     }
 });

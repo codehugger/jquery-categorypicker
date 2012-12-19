@@ -15,6 +15,10 @@ $(element).categorypicker({
 });
 ```
 
+## Live Example
+
+There is a live example available on [jsFiddle]()
+
 ## Options
 
 **selectedCategories:** a collection of pre-selected categories. (default: [])
@@ -32,19 +36,19 @@ $(element).categorypicker({
 **onUpdate:** a callback used when the selection changes (default: undefined)
 
 **rootTemplate:** the template surrounding the categorypicker. Default:
-  
+
   ```html
   <div class="categorypicker"></div>
   ```
 
 **listTemplate:** the template for the list. Default:
-  
+
   ```html
   <ul class="list"></ul>
   ```
 
 **itemTemplate:** the template for the items in the list. Default:
-  
+
   ```html
   <li class="item"></li>
   ```
