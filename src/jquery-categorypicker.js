@@ -45,7 +45,6 @@
          * triggers the onInit callback with selectedCategories
          */
         function triggerOnInit() {
-            console.log('trying onInit');
             if (onInit) { onInit(selectedCategories); }
         }
 
@@ -53,7 +52,6 @@
          * triggers the onUpdate callback with selectedCategories
          */
         function triggerOnUpdate() {
-            console.log('trying onUpdate');
             if (onUpdate) { onUpdate(selectedCategories); }
         }
 
@@ -119,9 +117,9 @@
             availableCategories     = opts.availableCategories  || [];
             selectedCategories      = opts.selectedCategories   || [];
             idField                 = opts.idField              || 'id';
-            sortField               = opts.sortField            || idField;
-            valueField              = opts.valueField           || 'value';
-            displayField            = opts.displayField         || 'value';
+            valueField              = opts.valueField           || 'name';
+            displayField            = opts.displayField         || valueField;
+            sortField               = opts.sortField            || valueField;
             onUpdate                = opts.onUpdate             || null;
             onInit                  = opts.onInit               || null;
 
