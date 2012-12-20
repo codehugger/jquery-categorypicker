@@ -12,6 +12,10 @@ ko.bindingHandlers.categorypicker = {
         var sortField = ko.utils.unwrapObservable(allBindings.sortField);
         var valueField = ko.utils.unwrapObservable(allBindings.valueField);
         var displayField = ko.utils.unwrapObservable(allBindings.displayField);
+        var onUpdate = ko.utils.unwrapObservable(allBindingsAccessor.onUpdate) || function (newSelection) {
+                value(newSelection);
+            };
+        var onInit = ko.utils.unwrapObservable(allBindingsAccessor.onInit);
 
         // Now manipulate the DOM element
         $(element).categorypicker({
@@ -21,14 +25,8 @@ ko.bindingHandlers.categorypicker = {
             sortField: sortField,
             valueField: valueField,
             displayField: displayField,
-
-            onInit: function (newSelection) {
-                // do nothing
-            },
-
-            onUpdate: function (newSelection) {
-                value(newSelection);
-            }
+            onInit: onInit,
+            onUpdate: onUpdate
         });
     }
 };

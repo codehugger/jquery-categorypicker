@@ -122,8 +122,8 @@
             sortField               = opts.sortField            || idField;
             valueField              = opts.valueField           || 'value';
             displayField            = opts.displayField         || 'value';
-            onUpdate                = opts.onUpdate;
-            onInit                  = opts.onInit;
+            onUpdate                = opts.onUpdate             || null;
+            onInit                  = opts.onInit               || null;
 
             // templates
             rootTemplate            = opts.rootTemplate         || '<div class="categorypicker"></div>';
@@ -132,6 +132,9 @@
 
             // initialize display
             render();
+
+            // trigger init callback
+            triggerOnInit();
 
             return self;
         }

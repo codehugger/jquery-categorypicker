@@ -58,10 +58,9 @@
                     displayField: 'display',
                     availableCategories: available,
                     selectedCategories: selected,
+                    onInit: updateDisplay,
                     onUpdate: updateDisplay,
                 });
-
-                updateDisplay(selected);
             }
 
             $("#all").on('click', function (e) {
