@@ -31,13 +31,15 @@ There is a live example available on [jsFiddle](http://jsfiddle.net/6eFvM/)
 
 **idField:** object field to use for id attribute on checkboxes (default: 'id')
 
-**sortField:** object field to use for sorting the checkboxes (default: 'id')
+**valueField:** object field to use for value attribute on checkboxes (default: 'name')
 
-**valueField:** object field to use for value attribute on checkboxes (default: 'value')
+**displayField:** object field used for text on checkboxes (default: valueField)
 
-**displayField:** object field used for text on checkboxes (default: 'value')
+**sortField:** object field to use for sorting the checkboxes (default: valueField)
 
-**onUpdate:** a callback used when the selection changes (default: undefined)
+**onUpdate:** a callback used when the selection changes (default: null)
+
+**onInit:** a callback used when the selection is set for the first time (default: null)
 
 **rootTemplate:** the template surrounding the categorypicker. Default:
 
