@@ -12,10 +12,9 @@ ko.bindingHandlers.categorypicker = {
         var sortField = ko.utils.unwrapObservable(allBindings.sortField);
         var valueField = ko.utils.unwrapObservable(allBindings.valueField);
         var displayField = ko.utils.unwrapObservable(allBindings.displayField);
-        var onUpdate = ko.utils.unwrapObservable(allBindingsAccessor.onUpdate) || function (newSelection) {
-                value(newSelection);
-            };
-        var onInit = ko.utils.unwrapObservable(allBindingsAccessor.onInit);
+        var onUpdate = ko.utils.unwrapObservable(allBindings.onUpdate) ||
+            (function (newSelection) { value(newSelection); });
+        var onInit = ko.utils.unwrapObservable(allBindings.onInit);
 
         // Now manipulate the DOM element
         $(element).categorypicker({
